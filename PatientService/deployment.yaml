@@ -1,0 +1,19 @@
+﻿apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: patient-service-deployment
+  labels:
+    app: patient-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patient-service
+  template:
+    metadata:
+      labels:
+        app: patient-service
+    spec:
+      containers:
+      - name: patient-service
+        image: docker.artifactory.surescripts.local/gaden/innovation-days/patientservice:0.1
